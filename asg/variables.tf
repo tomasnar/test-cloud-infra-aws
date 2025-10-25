@@ -8,7 +8,10 @@ variable "vpc_id" {
 }
 
 data "aws_subnets" "all" {
-  vpc_id = var.vpc_id
+  filter {
+    name   = "vpc-id"
+    values = [var.vpc_id]
+  }
 }
 
 # Amazon Linux latest (x64)
