@@ -7,7 +7,7 @@ variable "vpc_id" {
   description = "The VPC to create things in."
 }
 
-data "aws_subnet_ids" "all" {
+data "aws_subnets" "all" {
   vpc_id = var.vpc_id
 }
 

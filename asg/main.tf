@@ -17,7 +17,7 @@ resource "aws_elb" "web-elb" {
   name = "${var.name}-elb"
 
   # The same availability zone as our instances
-  subnets         = data.aws_subnet_ids.all.ids
+  subnets         = data.aws_subnets.all.ids
   security_groups = [aws_security_group.default.id]
   listener {
     instance_port     = 22
@@ -36,7 +36,7 @@ resource "aws_elb" "web-elb" {
 }
 
 resource "aws_autoscaling_group" "web-asg" {
-  vpc_zone_identifier = data.aws_subnet_ids.all.ids
+  vpc_zone_identifier = data.aws_subnets.all.ids
   name                = "${var.name}-asg"
   max_size            = var.asg_max
   min_size            = var.asg_min
