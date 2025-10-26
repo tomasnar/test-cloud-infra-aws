@@ -1,3 +1,10 @@
+locals {
+  ec2_instance_roles = [
+    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+    "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+  ]
+}
+
 variable "aws_region" {
   description = "The AWS region to create things in."
   default     = "ap-southeast-1"
