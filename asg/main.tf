@@ -17,8 +17,8 @@ resource "aws_elb" "web-elb" {
   name = "${var.name}-elb"
 
   # The same availability zone as our instances
-  subnets         = data.aws_subnets.all.ids
-  security_groups = [aws_security_group.default.id]
+  subnets            = data.aws_subnets.all.ids
+  security_groups    = [aws_security_group.default.id]
   load_balancer_type = "network"
   listener {
     instance_port     = 22
