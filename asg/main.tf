@@ -68,6 +68,8 @@ module "nlb" {
     }
   }
   additional_target_group_attachments = {}
+  target_group_instance_attachment_map = {}
+  target_group_ip_attachment_map       = {}
   target_groups = {
     ex-target-one = {
       name_prefix            = "web-"
