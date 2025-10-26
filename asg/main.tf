@@ -13,15 +13,6 @@ resource "aws_key_pair" "keypair" {
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAmn0Fz/9Y50QobhLnOP1Y5Sa+FtyUutH9X8wK+o7vfgEKN6KUO4MfleNvZZuIT2iy2EJLSUgBDz8ck1c7tJkC/zzLZyv/Y8T8SI1G3DyMTOPPwFd6Al9shN0Lc1Sh/BFricY7RjoUV8bjQTev9t4zaUFu/+AS/o/ZardNHKgavGW9e3sMnMLweTDPWSwT8EUPFZLdapPXvV3kbF8j4P9cAjLFhxlKy1COe+RkivjcdzlG9gVWq8yvlrSFyUTl40BCYlWbEdRhBhR8ppnP/T3KXOfkH6PJ8P2GLTpTiZhrTD/X4CxzkkNsVoEUllFGU8LXcKI+TdLPEGjMbUPr7Jr0x1Y4IZ4qzzHW3uZ1i6LedJgLtKyJla0v+rGYbR9vvvjYfln3KDazNLUnS82B/ONboADjK3Ts7br/E2+kJQ7GhrJnxQbywdh2ftcQz4SaWNiq/Zb5TiJxjDdizJf7j59kDUHB+fCOGSEF2y5rLBNsh86mbZLIwfyNuXQHS89yStV/qgcize3DviMJbNr2i2EkseLyV8upcD6+UtLoa5ZcqsYLZCQf6FuufBusoFmX+RO5EazZqVVrRcaoxwzCVM9+a2FcdW8LX4B8Il0DHScuexRSQUxMMRw+w6SYfDhA1SXol0dE7RF5zqk+vPqLfSNyZu8pcop/lWhiHFJP07WFVu0= rsa-key-20210730"
 }
 
-  health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    target              = "TCP:22"
-    interval            = 30
-  }
-}
-
 module "nlb" {
   source = "terraform-aws-modules/alb/aws"
 
