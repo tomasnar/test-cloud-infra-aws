@@ -1,3 +1,3 @@
 #!/bin/bash -v
-yum update -y
-yum install -y nginx > /tmp/nginx.log
+dnf update -y
+dnf install -y nginx > /tmp/nginx.log
