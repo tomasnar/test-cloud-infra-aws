@@ -67,9 +67,6 @@ module "nlb" {
       }
     }
   }
-  additional_target_group_attachments = {}
-  target_group_instance_attachment_map = {}
-  target_group_ip_attachment_map       = {}
   target_groups = {
     ex-target-one = {
       name_prefix            = "web-"
@@ -77,6 +74,7 @@ module "nlb" {
       port                   = 80
       connection_termination = true
       preserve_client_ip     = true
+      create_attachment      = false
     }
 
     ex-target-two = {
@@ -85,6 +83,7 @@ module "nlb" {
       port        = 22
       connection_termination = true
       preserve_client_ip     = true
+      create_attachment      = false
     }
   }
 }
