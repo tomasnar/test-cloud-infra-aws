@@ -101,7 +101,6 @@ resource "aws_launch_template" "launch_template" {
   # Security group
   vpc_security_group_ids = [module.nlb.security_group_id]
   user_data              = filebase64("${path.module}/userdata.sh")
-  key_name               = aws_key_pair.keypair.key_name
 }
 
 resource "aws_iam_role" "ec2_iam_role" {
