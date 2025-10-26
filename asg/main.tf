@@ -150,7 +150,7 @@ resource "aws_iam_role" "ec2_iam_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "ec2_iam_role_attachment" {
-  for_each   = toset(locals.ec2_instance_roles)
+  for_each   = toset(local.ec2_instance_roles)
   role       = aws_iam_role.ec2_iam_role.name
   policy_arn = each.key
 }
