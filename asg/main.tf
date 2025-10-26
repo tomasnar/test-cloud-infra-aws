@@ -127,7 +127,7 @@ resource "aws_launch_template" "launch_template" {
   instance_type = var.instance_type
 
   # Security group
-  vpc_security_group_ids = [aws_security_group.default.id]
+  vpc_security_group_ids = [module.nlb.security_group_id]
   user_data              = filebase64("${path.module}/userdata.sh")
   key_name               = aws_key_pair.keypair.key_name
 }

@@ -1,5 +1,5 @@
 output "security_group" {
-  value = aws_security_group.default.id
+  value = module.nlb.security_group_id
 }
 
 output "asg_name" {
