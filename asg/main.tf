@@ -24,7 +24,6 @@ module "nlb" {
   subnets            = data.aws_subnets.all.ids
 
   # Security Group
-  enforce_security_group_inbound_rules_on_private_link_traffic = "off"
   security_group_ingress_rules = {
     ssh_rule = {
       from_port   = 22
@@ -68,7 +67,7 @@ module "nlb" {
       }
     }
   }
-
+  additional_target_group_attachments = {}
   target_groups = {
     ex-target-one = {
       name_prefix            = "web-"
