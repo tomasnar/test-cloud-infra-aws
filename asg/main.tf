@@ -96,7 +96,9 @@ resource "aws_launch_template" "launch_template" {
   name          = "${var.name}-template"
   image_id      = data.aws_ami.amazonlinux.image_id
   instance_type = var.instance_type
-
+  iam_instance_profile {
+    name = aws_iam_instance_profile.ec2_instance_profile.name
+  }
   # Security group
   vpc_security_group_ids = [module.nlb.security_group_id]
   user_data              = filebase64("${path.module}/userdata.sh")
