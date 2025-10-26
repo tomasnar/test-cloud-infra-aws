@@ -73,8 +73,7 @@ resource "aws_autoscaling_group" "web-asg" {
   }
 
   target_group_arns = [
-    module.nlb.target_groups["ex-target-one"].arn,
-    module.nlb.target_groups["ex-target-two"].arn
+    module.nlb.target_groups["ex-target-one"].arn
   ]
 
   tag {
