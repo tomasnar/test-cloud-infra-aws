@@ -21,12 +21,14 @@ data "aws_ami" "amazonlinux" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm*gp2"]
+    # Matches the standard, non-minimal, x86_64 AMI. 
+    # Use 'al2023-ami-minimal-2023.*-x86_64' for the minimal version.
+    values = ["al2023-ami-2023.*-x86_64"] 
   }
 
   filter {
-    name   = "architecture"
-    values = ["x86_64"]
+    name   = "virtualization-type"
+    values = ["hvm"]
   }
 }
 
