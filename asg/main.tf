@@ -19,6 +19,7 @@ resource "aws_elb" "web-elb" {
   # The same availability zone as our instances
   subnets         = data.aws_subnets.all.ids
   security_groups = [aws_security_group.default.id]
+  type            = "network"
   listener {
     instance_port     = 22
     instance_protocol = "tcp"
