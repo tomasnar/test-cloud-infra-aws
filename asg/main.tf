@@ -34,6 +34,7 @@ module "nlb" {
       cidr_ipv4   = "0.0.0.0/0"
     }
   }
+  enable_deletion_protection = false
 
 #  access_logs = {
 #    bucket = module.log_bucket.s3_bucket_id
